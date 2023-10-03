@@ -122,9 +122,9 @@ function handlerOnClickBtnLoadMore() {
 			});
 
 			// знайдено менше ніж PER_PAGE - повідомлення, що це все, що знайдено, забираєм кнопку
-			if (fetchResponse.data.totalHits < PER_PAGE) {
+			if (fetchResponse.data.hits.length < PER_PAGE) {
 				Notiflix.Notify.success(`We're sorry, but you've reached the end of search results.`);
-				hideBtnLoadMore;
+				hideBtnLoadMore();
 			}
 		})
 		.catch(error => console.log(error))
